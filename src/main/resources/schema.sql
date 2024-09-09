@@ -1,0 +1,25 @@
+CREATE TABLE users (
+    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    role ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER') NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    status ENUM('ACTIVE', 'INACTIVE', 'PENDING_APPROVAL', 'REJECTED', 'APPROVED') NOT NULL,
+    last_login_date TIMESTAMP WITH TIME ZONE,
+    created_date TIMESTAMP WITH TIME ZONE,
+    modified_date TIMESTAMP WITH TIME ZONE
+);
+
+CREATE TABLE passwords (
+    user_id UUID PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE phones (
+    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    user_id UUID NOT NULL,
+    number BIGINT NOT NULL,
+    city_code INT NOT NULL,
+    country_code VARCHAR(3) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

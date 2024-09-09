@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "90aa7059-1939-46d6-8475-0493bdeb7e26",
+		"name": "Neoris-Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11437656",
+		"_collection_link": "https://winter-trinity-983833.postman.co/workspace/C-HUB-Workspace~a7bf2368-1358-4872-83a9-ff2e5323d199/collection/11437656-90aa7059-1939-46d6-8475-0493bdeb7e26?action=share&source=collection_link&creator=11437656"
+	},
+	"item": [
+		{
+			"name": "Authenticate user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MDUyNzYwODYsImV4cCI6MTcwNTM2MjQ4Nn0.hO5ALh4kX-1WPrX-VUt2CdllLYqOHene-SFSj23O7rlyIrYA0vQOJ3TPIKnsgg3iqn6ou7-RNjO2uYUtnK4gfQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan Rodriguez\",\r\n    \"email\": \"juan@rodriguez.org\",\r\n    \"password\": \"Password1\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 1234567,\r\n            \"citycode\": 1,\r\n            \"countrycode\": \"57\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user phone",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuQHJvZHJpZ3Vlei5vcmciLCJpYXQiOjE3MjU4NTEzNjEsImV4cCI6MTcyNTg1MTk2MX0.KlVP-Gj1ZxFuaGJZx5ETI_XOsE0mr6MSQT1FtpAvo_-I54xfMOUhXpszBWtPdvugWQv-lJgInNevLNTVJVKawg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/0a3d037f-dee2-4de3-8578-ea9dcc928fa0/phones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"0a3d037f-dee2-4de3-8578-ea9dcc928fa0",
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user phone",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuQHJvZHJpZ3Vlei5vcmciLCJpYXQiOjE3MjU4NTEzNjEsImV4cCI6MTcyNTg1MTk2MX0.KlVP-Gj1ZxFuaGJZx5ETI_XOsE0mr6MSQT1FtpAvo_-I54xfMOUhXpszBWtPdvugWQv-lJgInNevLNTVJVKawg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": 123456355,\r\n    \"citycode\": 1,\r\n    \"countrycode\": \"+56\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/0a3d037f-dee2-4de3-8578-ea9dcc928fa0/phones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"0a3d037f-dee2-4de3-8578-ea9dcc928fa0",
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user phone batch",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuQHJvZHJpZ3Vlei5vcmciLCJpYXQiOjE3MjU4NTEzNjEsImV4cCI6MTcyNTg1MTk2MX0.KlVP-Gj1ZxFuaGJZx5ETI_XOsE0mr6MSQT1FtpAvo_-I54xfMOUhXpszBWtPdvugWQv-lJgInNevLNTVJVKawg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"number\": 1257786,\r\n    \"citycode\": 18,\r\n    \"countrycode\": \"562\"\r\n},\r\n{\r\n    \"number\": 35696797,\r\n    \"citycode\": 12,\r\n    \"countrycode\": \"+26\"\r\n},\r\n{\r\n    \"number\": 234645673,\r\n    \"citycode\": 11,\r\n    \"countrycode\": \"66\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/0a3d037f-dee2-4de3-8578-ea9dcc928fa0/phones/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"0a3d037f-dee2-4de3-8578-ea9dcc928fa0",
+						"phones",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users as ADMIN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjU4MjM3NDIsImV4cCI6MTcyNTgyNDM0Mn0.yXDW4XKaK8i_jvp5laGplEbeOT8HDGvuOJrpvP5ptZFygVYblI9q_LfOzbxpoFFRnm6911avfb8QkyFVg3s7EQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch users as ADMIN",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjU4NTEyMzcsImV4cCI6MTcyNTg1MTgzN30.5TVlEUOB89hPipkXsULi6pEmYHiJqoPti5zEQ6pvR1T50FjHvWkzV-dMg3fupL9uh4rzVAvhosPO05xqRo7lUQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  { \"op\": \"replace\", \"path\": \"/status\", \"value\": \"ACTIVE\" }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/user/0a3d037f-dee2-4de3-8578-ea9dcc928fa0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"user",
+						"0a3d037f-dee2-4de3-8578-ea9dcc928fa0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,15 @@
+1. descargar el código fuente.
+2. usar el wrapper de maven para compilar con el comando .\mvnw clean install, generará la carpeta target.
+3. usando la consola, navegar hasta la carpeta target y localizar el archivo prueba-0.0.1-SANPSHOT.jar
+3 usando java, levantar el proyecto con java -jar prueba-0.0.1-SANPSHOT.jar
+el proyecto levatará en el puerto 8080.
+
+4. usando postman, importar la colección Prueba-Collection.postman_collection.json
+	éste archivo contiene ejemplos para cada uno de los endpoints disponibles para interactuar con el aplicativo.
+	NOTA: recordar agregar el Header "Bearer {token}" que se genera en el login.
+5. si se desea entrar a la consola h2, se puede a través de la url localhost:8080/h2-console
+	el usuario y la contraseña es root.
+6. si se desea ver la documentación via Swagger, acceder via la url localhost:8080/swagger-ui.html
+	Es posible generar el token de autenticación con el usuario "admin@admin.com" y contraseña "1234"
+	para poder interactuar con el aplicativo.
+7. los diagramas de flujo se encuentran en: https://docs.google.com/document/d/1omQGwgyo11Lu6WiTMjtV4m9RHPfdD3uVAJADV0rG0PA
